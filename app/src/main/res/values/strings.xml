@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name" translatable="false">Hello World</string>
+    <string name="title_activity_schedule" translatable="false">Schedule</string>
+</resources>
