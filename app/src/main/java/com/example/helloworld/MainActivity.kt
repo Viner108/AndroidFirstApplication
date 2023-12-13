@@ -50,30 +50,18 @@ class MainActivity : AppCompatActivity() {
                 val client = OkHttpClient()
                 var j = JSONObject(mapOf("chat" to mapOf("a" to "get_history"))).toString()
                 val mediaType = "application/json".toMediaTypeOrNull()
+            var r=if (checkBox.isChecked){"yes"} else {"no"}
                 var body = RequestBody.create(
                     mediaType,
                     JSONObject(
                         mapOf(
                             "data " + "${dateText}" to mapOf(
                                 "time " + "${timeText}" to "pressure " + "${editText.text}",
-                                "headache" to "no"
+                                "headache" to r
                             )
                         )
                     ).toString()
                 )
-                if (checkBox.isChecked) {
-                    body = RequestBody.create(
-                        mediaType,
-                        JSONObject(
-                            mapOf(
-                                "data " + "${dateText}" to mapOf(
-                                    "time " + "${timeText}" to "pressure " + "${editText.text}",
-                                    "headache" to "yes"
-                                )
-                            )
-                        ).toString()
-                    )
-                }
                 val request = Request.Builder()
                     .url("http://192.168.1.102:3002/addresses/q1/2")
                     .post(body)
