@@ -51,15 +51,16 @@ class MainActivity : AppCompatActivity() {
                 var j = JSONObject(mapOf("chat" to mapOf("a" to "get_history"))).toString()
                 val mediaType = "application/json".toMediaTypeOrNull()
             var r=if (checkBox.isChecked){"yes"} else {"no"}
+            var dto:DTO=DTO(1,2)
                 var body = RequestBody.create(
                     mediaType,
                     JSONObject(
-                        mapOf(
-                            "data " + "${dateText}" to mapOf(
-                                "time " + "${timeText}" to "pressure " + "${editText.text}",
-                                "headache" to r
-                            )
-                        )
+//                        mapOf(
+//                            "data " + "${dateText}" to mapOf(
+//                                "time " + "${timeText}" to "pressure " + "${editText.text}",
+//                                "headache" to r
+//                            )
+//                        )
                     ).toString()
                 )
                 val request = Request.Builder()
